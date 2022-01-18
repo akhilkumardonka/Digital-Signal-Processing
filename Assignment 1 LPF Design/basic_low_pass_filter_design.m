@@ -3,13 +3,12 @@ clc;
 close all;
 
 %% filter designing | filter(fs, fc, N)
-hd = filter(1600, 400, 39);
+hd = filter(3200, 400, 39);
 fvtool(hd);
-
 %% Windowing (hamming)
 
 % window(style, N) | style : 1-Hamming, 2-Hanning, 3-Blackman
-w = window(3,39);
+w = window(1,39);
 h =  hd.*w; % applying window
 fvtool(h);
 
