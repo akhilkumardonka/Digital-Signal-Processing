@@ -3,7 +3,7 @@ clc;
 close all;
 
 %% filter designing | filter(fs, fc, N)
-hd = filter(3200, 400, 39);
+hd = filter(1600, 400, 39);
 fvtool(hd);
 %% Windowing (hamming)
 
