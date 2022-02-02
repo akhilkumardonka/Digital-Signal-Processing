@@ -48,7 +48,7 @@ stem(n, errors);
 
 function [error, errs] = calError(x, y)
     errs = y - x;
-    error = mean(errs);
+    error = mean(abs(errs));
 end
 
 function y = decimator(M, fc, fs, N, x)
