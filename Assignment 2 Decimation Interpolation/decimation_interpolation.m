@@ -21,8 +21,12 @@ yOut = interpolater(L, 600, 2400, 101, deciOut);
 [err, errors] = calError(xn, yOut);
 fprintf("Decimation-Interpolation Error for M=L=2 : %.4f \n", err);
 
+subplot(2,1,1);
 stem(n, yOut);
+title('Output Waveform')
+subplot(2,1,2);
 stem(n, errors);
+title('Errors')
 
 %% Question 2
 M = 4;
@@ -31,8 +35,12 @@ deciOut = decimator(M, 300, 2400, 101, xn);
 yOut = interpolater(L, 300, 2400, 101, deciOut);
 [err, errors] = calError(xn, yOut);
 fprintf("Decimation-Interpolation Error for M=L=4 : %.4f\n", err);
+subplot(2,1,1);
 stem(n, yOut);
+title('Output Waveform')
+subplot(2,1,2);
 stem(n, errors);
+title('Errors')
 
 %% Question 3
 M = 8;
@@ -41,8 +49,12 @@ deciOut = decimator(M, 150, 2400, 101, xn);
 yOut = interpolater(L, 150, 2400, 101, deciOut);
 [err, errors] = calError(xn, yOut);
 fprintf("Decimation-Interpolation Error for M=L=8 : %.4f \n", err)
+subplot(2,1,1);
 stem(n, yOut);
+title('Output Waveform')
+subplot(2,1,2);
 stem(n, errors);
+title('Errors')
 
 %% functions definations
 
