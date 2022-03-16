@@ -3,17 +3,17 @@ close all;
 %% getting audio samples and plotting spectrogram
 
 [d,r] = audioread('msmn1.wav');
-specgram(d,1024,r);
-soundsc(d,r);
 
-%% Decimation and Interpolation
+%% Decimation and Interpolation | Modify M, L 
 
 M = 2;
 L = 2;
 fc = r / (2*M);
 deciOut = decimator(M, fc, r, 101, d);
+% audiowrite('decimated_output.wav',deciOut, round(r/M));
 df = interpolater(L, fc, r, 101, deciOut);
 soundsc(df,r);
+% audiowrite('interpolated_output.wav',df, r);
 
 %% Analyzing output
 
@@ -21,7 +21,7 @@ subplot(3,1,1);
 specgram(d,1024,r);
 title('Original Spectrogram')
 subplot(3,1,2);
-specgram(deciOut,1024,r/2);
+specgram(deciOut,1024,r/M);
 title('Decimated Spectrogram')
 subplot(3,1,3);
 specgram(df,1024,r);
